@@ -1,0 +1,5 @@
+applications:
+  - name: backend-tableros
+    random-route: true
+    memory: 2048M
+    instances: 1
