@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
 IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,IgsColpatriaCOConn, IgsEntelCLConn,
-IgsPromericaCOConn } = require('../../db');
+IgsPromericaCOConn, IgsBancolombiaAMConn } = require('../../db');
 const Schema = mongoose.Schema;
 
 const scoringkeywordsSchema = new Schema({
@@ -42,6 +42,7 @@ const scoringkeywordsBpogsHitesFinancieroCOModel = BpogsHitesFinancieroCOConn.mo
 const scoringkeywordsIgsColpatriaCOModel = IgsColpatriaCOConn.model('Scoringkeywords', scoringkeywordsSchema);
 const scoringkeywordsIgsEntelCLModel = IgsEntelCLConn.model('Scoringkeywords', scoringkeywordsSchema);
 const scoringkeywordsIgsPromericaCOModel = IgsPromericaCOConn.model('Scoringkeywords', scoringkeywordsSchema);
+const scoringkeywordsIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Scoringkeywords', scoringkeywordsSchema);
 
 
 module.exports = {
@@ -60,6 +61,7 @@ module.exports = {
     scoringkeywordsBpogsHitesFinancieroCOModel,
     scoringkeywordsIgsColpatriaCOModel,
     scoringkeywordsIgsEntelCLModel,
-    scoringkeywordsIgsPromericaCOModel
+    scoringkeywordsIgsPromericaCOModel,
+    scoringkeywordsIgsBancolombiaAMModel
 
 }; 

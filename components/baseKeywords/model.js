@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
 IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,
-IgsColpatriaCOConn, IgsEntelCLConn, IgsPromericaCOConn } = require('../../db');
+IgsColpatriaCOConn, IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn } = require('../../db');
 const Schema = mongoose.Schema;
  
 const baseKeywordsSchema = new Schema({
@@ -46,6 +46,7 @@ const baseKeywordsBpogsHitesFinancieroCOModel = BpogsHitesFinancieroCOConn.model
 const baseKeywordsIgsColpatriaCOModel = IgsColpatriaCOConn.model('Basekeywords', baseKeywordsSchema);
 const baseKeywordsIgsEntelCLModel = IgsEntelCLConn.model('Basekeywords', baseKeywordsSchema);
 const baseKeywordsIgsPromericaCOModel = IgsPromericaCOConn.model('Basekeywords', baseKeywordsSchema);
+const baseKeywordsIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Basekeywords', baseKeywordsSchema);
 
 module.exports = {
     baseKeywordsDaviplataCOModel,
@@ -63,6 +64,7 @@ module.exports = {
     baseKeywordsBpogsHitesFinancieroCOModel,
     baseKeywordsIgsColpatriaCOModel,
     baseKeywordsIgsEntelCLModel,
-    baseKeywordsIgsPromericaCOModel
+    baseKeywordsIgsPromericaCOModel,
+    baseKeywordsIgsBancolombiaAMModel
 
 };

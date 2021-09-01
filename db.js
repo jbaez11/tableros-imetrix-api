@@ -47,7 +47,8 @@ const IgsSufiCOConn = makeNewConnection('igsSufiCO');
 const BpogsHitesFinancieroCOConn = makeNewConnection('bpogsHitesFinancieroCO');
 const IgsColpatriaCOConn = makeNewConnection('igsColpatriaCO');
 const IgsEntelCLConn = makeNewConnection('igsEntelCL');
-const IgsPromericaCOConn = makeNewConnection('igsPromericaCO')
+const IgsPromericaCOConn = makeNewConnection('igsPromericaCO');
+const IgsBancolombiaAMConn = makeNewConnection('igsBancolombiaAM');
 
 
 
@@ -57,6 +58,6 @@ module.exports = {
     BpogsHitesDespachoRetrioCOConn,alkTestCOconn,
     BpogsBoldFrenchFRConn,IgsDaviplataCOConn,BpogsAMCCOCon,IgsBancoDeOccidenteCOConn,
     IgsSufiCOConn,BpogsHitesFinancieroCOConn,IgsColpatriaCOConn, IgsEntelCLConn,
-    IgsPromericaCOConn
+    IgsPromericaCOConn,IgsBancolombiaAMConn
 };
 

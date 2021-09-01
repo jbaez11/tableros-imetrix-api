@@ -14,7 +14,8 @@ const {auditconversationSerFinanzaModel,
     auditconversationBpogsHitesFinancieroCOModel,
     auditconversationIgsColpatriaCOModel,
     auditconversationIgsEntelCLModel,
-    auditconversationIgsPromericaCOModel} = require('./model');
+    auditconversationIgsPromericaCOModel,
+    auditconversationIgsBancolombiaAMModel} = require('./model');
 
 async function getConversations(filterConversations){
     let filter = {};
@@ -80,7 +81,10 @@ async function getConversations(filterConversations){
                 return auditconversation;
         case 'igsPromericaCO' :
                 auditconversation = await auditconversationIgsPromericaCOModel.find(filter);
-                return auditconversation;                            
+                return auditconversation;
+        case 'igsBancolombiaAM' :
+                auditconversation = await auditconversationIgsBancolombiaAMModel.find(filter);
+                return auditconversation;                                    
         }
         
     

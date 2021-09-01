@@ -4,7 +4,7 @@ const Double = require('@mongoosejs/double');
 const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
 IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,
-IgsColpatriaCOConn,IgsEntelCLConn, IgsPromericaCOConn
+IgsColpatriaCOConn,IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn
  } = require('../../db');
 const Schema = mongoose.Schema;
 
@@ -63,6 +63,7 @@ const consumptionBpogsHitesFinancieroCOModel = BpogsHitesFinancieroCOConn.model(
 const consumptionIgsColpatriaCOModel = IgsColpatriaCOConn.model('Consumptions', consumptionSchema);
 const consumptionIgsEntelCLModel = IgsEntelCLConn.model('Consumptions', consumptionSchema);
 const consumptionIgsPromericaCOModel = IgsPromericaCOConn.model('Consumptions', consumptionSchema);
+const consumptionIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Consumptions', consumptionSchema);
 
 module.exports = {
     consumptionDaviplataCOModel,
@@ -80,5 +81,6 @@ module.exports = {
     consumptionBpogsHitesFinancieroCOModel,
     consumptionIgsColpatriaCOModel,
     consumptionIgsEntelCLModel,
-    consumptionIgsPromericaCOModel
+    consumptionIgsPromericaCOModel,
+    consumptionIgsBancolombiaAMModel
 }; 

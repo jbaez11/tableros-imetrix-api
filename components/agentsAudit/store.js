@@ -12,7 +12,8 @@ const {agentsAuditSerFinanzaModel,
     agentsAuditBpogsHitesFinancieroCOModel,
     agentsAuditIgsColpatriaCOModel,
     agentsAuditIgsEntelCLModel,
-    agentsAuditIgsPromericaCOModel} = require('./model');
+    agentsAuditIgsPromericaCOModel,
+    agentsAuditIgsBancolombiaAMModel} = require('./model');
 
 
 async function getAsesores(filterAgentsAudit,nameDB){
@@ -93,7 +94,10 @@ async function getAsesores(filterAgentsAudit,nameDB){
                 return agentsAudit;
         case 'igsPromericaCO' :
                 agentsAudit = await agentsAuditIgsPromericaCOModel.find(filter);
-                return agentsAudit;                                               
+                return agentsAudit;
+        case 'igsBancolombiaAM' :
+                agentsAudit = await agentsAuditIgsBancolombiaAMModel.find(filter);
+                return agentsAudit;                                                       
         
                        
         }

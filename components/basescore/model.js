@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
     IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn, IgsColpatriaCOConn, IgsEntelCLConn,
-    IgsPromericaCOConn} = require('../../db');
+    IgsPromericaCOConn, IgsBancolombiaAMConn} = require('../../db');
 
 const Schema = mongoose.Schema;
 
@@ -32,6 +32,7 @@ const basescoreBpogsHitesFinancieroCOModel = BpogsHitesFinancieroCOConn.model('B
 const basescoreIgsColpatriaCOModel = IgsColpatriaCOConn.model('Basescores', basescoreSchema);
 const basescoreIgsEntelCLModel = IgsEntelCLConn.model('Basescores', basescoreSchema);
 const basescoreIgsPromericaCOModel = IgsPromericaCOConn.model('Basescores', basescoreSchema);
+const basescoreIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Basescores', basescoreSchema);
 
 module.exports = {
     basescoreDaviplataCOModel,
@@ -49,5 +50,6 @@ module.exports = {
     basescoreBpogsHitesFinancieroCOModel,
     basescoreIgsColpatriaCOModel,
     basescoreIgsEntelCLModel,
-    basescoreIgsPromericaCOModel
+    basescoreIgsPromericaCOModel,
+    basescoreIgsBancolombiaAMModel
 };

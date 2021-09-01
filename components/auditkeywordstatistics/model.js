@@ -3,7 +3,7 @@ const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,
     IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
     IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,
-    IgsColpatriaCOConn,IgsEntelCLConn, IgsPromericaCOConn } = require('../../db');
+    IgsColpatriaCOConn,IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn } = require('../../db');
 const Schema = mongoose.Schema;
 
 const auditkeywordstatisticsSchema = new Schema({
@@ -36,6 +36,8 @@ const auditkeywordstatisticsBpogsHitesFinancieroCOModel = BpogsHitesFinancieroCO
 const auditkeywordstatisticsIgsColpatriaCOModel = IgsColpatriaCOConn.model('Auditkeywordstatistics', auditkeywordstatisticsSchema);
 const auditkeywordstatisticsIgsEntelCLModel = IgsEntelCLConn.model('Auditkeywordstatistics', auditkeywordstatisticsSchema);
 const auditkeywordstatisticsIgsPromericaCOModel = IgsPromericaCOConn.model('Auditkeywordstatistics', auditkeywordstatisticsSchema);
+const auditkeywordstatisticsIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Auditkeywordstatistics', auditkeywordstatisticsSchema);
+
 
 module.exports = {
     auditkeywordstatisticsIgsDaviplataCOModel,
@@ -53,5 +55,6 @@ module.exports = {
     auditkeywordstatisticsBpogsHitesFinancieroCOModel,
     auditkeywordstatisticsIgsColpatriaCOModel,
     auditkeywordstatisticsIgsEntelCLModel,
-    auditkeywordstatisticsIgsPromericaCOModel
+    auditkeywordstatisticsIgsPromericaCOModel,
+    auditkeywordstatisticsIgsBancolombiaAMModel
 };
