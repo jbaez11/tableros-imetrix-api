@@ -14,7 +14,8 @@ const {auditkeywordstatisticsSerFinanzaModel,
     auditkeywordstatisticsIgsColpatriaCOModel,
     auditkeywordstatisticsIgsEntelCLModel,
     auditkeywordstatisticsIgsPromericaCOModel,
-    auditkeywordstatisticsIgsBancolombiaAMModel} = require('./model');
+    auditkeywordstatisticsIgsBancolombiaAMModel,
+    auditkeywordstatisticsIgsAlmacenesSIModel} = require('./model');
 
 async function getAuditkeywordstatistics(filterAuditkeywordstatistics,nameDB){
     let filter = {};
@@ -97,6 +98,9 @@ async function getAuditkeywordstatistics(filterAuditkeywordstatistics,nameDB){
             return auditkeywordstatistics;
         case 'igsBancolombiaAM' :
             auditkeywordstatistics = await auditkeywordstatisticsIgsBancolombiaAMModel.find(filter);
+            return auditkeywordstatistics;
+        case 'igsAlmacenesSI' :
+            auditkeywordstatistics = await auditkeywordstatisticsIgsAlmacenesSIModel.find(filter);
             return auditkeywordstatistics;        
                         
         }

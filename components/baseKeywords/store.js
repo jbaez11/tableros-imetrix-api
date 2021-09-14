@@ -14,7 +14,8 @@ const {baseKeywordsSerFinanzaModel,
     baseKeywordsIgsColpatriaCOModel,
     baseKeywordsIgsEntelCLModel,
     baseKeywordsIgsPromericaCOModel,
-    baseKeywordsIgsBancolombiaAMModel} = require('./model');
+    baseKeywordsIgsBancolombiaAMModel,
+    baseKeywordsIgsAlmacenesSIModel} = require('./model');
 
 async function getBaseKeywords(nameDB){
     var baseKeywords;
@@ -73,6 +74,9 @@ async function getBaseKeywords(nameDB){
             return baseKeywords;
         case 'igsBancolombiaAM' :
             baseKeywords = await baseKeywordsIgsBancolombiaAMModel.find();
+            return baseKeywords;
+        case 'igsAlmacenesSI' :
+            baseKeywords = await baseKeywordsIgsAlmacenesSIModel.find();
             return baseKeywords;        
         }
         
@@ -154,6 +158,10 @@ function addBaseKeywords(baseKeywords,nameDB){
             
         case 'igsBancolombiaAM' :
             myBaseKeywords = new baseKeywordsIgsBancolombiaAMModel(baseKeywords);
+            myBaseKeywords.save();
+            return myBaseKeywords;
+        case 'igsAlmacenesSI' :
+            myBaseKeywords = new baseKeywordsIgsAlmacenesSIModel(baseKeywords);
             myBaseKeywords.save();
             return myBaseKeywords;    
         }
@@ -315,7 +323,16 @@ async function updateBaseKeywords(id,keyword,category,module,cluster,nameDB){
             foundBaseKeywords.module = module ;
             foundBaseKeywords.cluster=cluster;
             newBaseKeywords = await foundBaseKeywords.save();
-            return newBaseKeywords;    
+            return newBaseKeywords;
+            
+        case 'igsAlmacenesSI' :
+            foundBaseKeywords = await baseKeywordsIgsAlmacenesSIModel.findOne({_id:id});
+            foundBaseKeywords.keyword = keyword ;
+            foundBaseKeywords.category = category ;
+            foundBaseKeywords.module = module ;
+            foundBaseKeywords.cluster=cluster;
+            newBaseKeywords = await foundBaseKeywords.save();
+            return newBaseKeywords;
         }
 
       return newBaseKeywords;
@@ -372,7 +389,9 @@ function removeBaseKeywords(id,nameDB){
         case 'igsPromericaCO' :
             return baseKeywordsIgsPromericaCOModel.deleteOne({_id:id});
         case 'igsBancolombiaAM' :
-            return baseKeywordsIgsPromericaCOModel.deleteOne({_id:id});    
+            return baseKeywordsIgsBancolombiaAMModel.deleteOne({_id:id});
+        case 'igsAlmacenesSI' :
+            return baseKeywordsIgsAlmacenesSIModel.deleteOne({_id:id});    
         }
 
         

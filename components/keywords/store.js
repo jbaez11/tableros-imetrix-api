@@ -14,7 +14,8 @@ const {keywordsSerFinanzaModel,
     keywordsIgsColpatriaCOModel,
     keywordsIgsEntelCLModel,
     keywordsIgsPromericaCOModel,
-    keywordsIgsBancolombiaAMModel} = require('./model');
+    keywordsIgsBancolombiaAMModel,
+    keywordsIgsAlmacenesSIModel} = require('./model');
 
 async function getAsesores(filterAgentsAudit,nameDB){
     let filter = {};
@@ -81,6 +82,9 @@ async function getAsesores(filterAgentsAudit,nameDB){
                 
         case 'igsBancolombiaAM' :
                 keywords = await keywordsIgsBancolombiaAMModel.find(filter);
+                return keywords;
+        case 'igsAlmacenesSI' :
+                keywords = await keywordsIgsAlmacenesSIModel.find(filter);
                 return keywords;
                        
         }

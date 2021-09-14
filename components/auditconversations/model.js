@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
     BpogsHitesDespachoRetrioCOConn,alkTestCOconn,BpogsBoldFrenchFRConn, IgsDaviplataCOConn, BpogsAMCCOCon,
 IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,IgsColpatriaCOConn,
-IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn } = require('../../db');
+IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn, IgsAlmacenesSIConn } = require('../../db');
 const Schema = mongoose.Schema;
 
 const auditconversationSchema = new Schema({
@@ -42,6 +42,7 @@ const auditconversationIgsColpatriaCOModel = IgsColpatriaCOConn.model('Auditconv
 const auditconversationIgsEntelCLModel = IgsEntelCLConn.model('Auditconversations', auditconversationSchema);
 const auditconversationIgsPromericaCOModel = IgsPromericaCOConn.model('Auditconversations', auditconversationSchema);
 const auditconversationIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Auditconversations', auditconversationSchema);
+const auditconversationIgsAlmacenesSIModel = IgsAlmacenesSIConn.model('Auditconversations', auditconversationSchema);
 
 
 module.exports = {
@@ -62,6 +63,7 @@ module.exports = {
     auditconversationIgsColpatriaCOModel,
     auditconversationIgsEntelCLModel,
     auditconversationIgsPromericaCOModel,
-    auditconversationIgsBancolombiaAMModel
+    auditconversationIgsBancolombiaAMModel,
+    auditconversationIgsAlmacenesSIModel
 };
 
