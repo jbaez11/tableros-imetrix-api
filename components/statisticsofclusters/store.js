@@ -14,7 +14,8 @@ const {statisticsOfClustersSerFinanzaModel,
     statisticsOfClustersIgsEntelCLModel,
     statisticsOfClustersIgsPromericaCOModel,
     statisticsOfClustersIgsBancolombiaAMModel,
-    statisticsOfClustersIgsAlmacenesSIModel} = require('./model');
+    statisticsOfClustersIgsAlmacenesSIModel,
+    statisticsOfClustersIgsJelpitCOModel} = require('./model');
 
 
 async function getstatisticsOfClusters(filterstatisticsOfClusters,nameDB){
@@ -102,6 +103,9 @@ async function getstatisticsOfClusters(filterstatisticsOfClusters,nameDB){
                
         case 'igsAlmacenesSI' :
                 statisticsOfClusters = await statisticsOfClustersIgsAlmacenesSIModel.find(filter);
+                return statisticsOfClusters;
+        case 'igsJelpitCO' :
+                statisticsOfClusters = await statisticsOfClustersIgsJelpitCOModel.find(filter);
                 return statisticsOfClusters;
                        
         }

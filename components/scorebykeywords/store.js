@@ -15,7 +15,8 @@ const {scoreSerFinanzaModel,
     scoreIgsEntelCLModel,
     scoreIgsPromericaCOModel,
     scoreIgsBancolombiaAMModel,
-    scoreIgsAlmacenesSIModel} = require('./model');
+    scoreIgsAlmacenesSIModel,
+    scoreIgsJelpitCOModel} = require('./model');
 
 async function getScore(filterScore){
     let filter = {};
@@ -99,6 +100,9 @@ async function getScore(filterScore){
             
         case 'igsAlmacenesSI' :
             score = await scoreIgsAlmacenesSIModel.find(filter);
+            return score;
+        case 'igsJelpitCO' :
+            score = await scoreIgsJelpitCOModel.find(filter);
             return score;
                          
         }

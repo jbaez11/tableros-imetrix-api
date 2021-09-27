@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
     IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn, IgsColpatriaCOConn, IgsEntelCLConn,
-    IgsPromericaCOConn, IgsBancolombiaAMConn, IgsAlmacenesSIConn} = require('../../db');
+    IgsPromericaCOConn, IgsBancolombiaAMConn, IgsAlmacenesSIConn, IgsJelpitCOConn} = require('../../db');
 
 const Schema = mongoose.Schema;
 
@@ -34,6 +34,7 @@ const basescoreIgsEntelCLModel = IgsEntelCLConn.model('Basescores', basescoreSch
 const basescoreIgsPromericaCOModel = IgsPromericaCOConn.model('Basescores', basescoreSchema);
 const basescoreIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Basescores', basescoreSchema);
 const basescoreIgsAlmacenesSIModel = IgsAlmacenesSIConn.model('Basescores', basescoreSchema);
+const basescoreIgsJelpitCOModel = IgsJelpitCOConn.model('Basescores', basescoreSchema);
 
 module.exports = {
     basescoreDaviplataCOModel,
@@ -53,5 +54,6 @@ module.exports = {
     basescoreIgsEntelCLModel,
     basescoreIgsPromericaCOModel,
     basescoreIgsBancolombiaAMModel,
-    basescoreIgsAlmacenesSIModel
+    basescoreIgsAlmacenesSIModel,
+    basescoreIgsJelpitCOModel
 };
