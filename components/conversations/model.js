@@ -5,7 +5,7 @@ const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,
     BpogsHitesDespachoRetrioCOConn,alkTestCOconn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn,
     BpogsAMCCOCon, IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,
     IgsColpatriaCOConn, IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn, IgsAlmacenesSIConn,
-    IgsJelpitCOConn} = require('../../db');
+    IgsJelpitCOConn, IgsComfamiliarCOConn} = require('../../db');
 const Schema = mongoose.Schema;
 
 const conversationsSchema = new Schema({
@@ -50,6 +50,7 @@ const conversationsIgsPromericaCOModel = IgsPromericaCOConn.model('Conversations
 const conversationsIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Conversations', conversationsSchema);
 const conversationsIgsAlmacenesSIModel = IgsAlmacenesSIConn.model('Conversations', conversationsSchema);
 const conversationsIgsJelpitCOModel = IgsJelpitCOConn.model('Conversations', conversationsSchema);
+const conversationsIgsComfamiliarCOModel = IgsComfamiliarCOConn.model('Conversations', conversationsSchema);
 
 
 module.exports = {
@@ -72,6 +73,7 @@ module.exports = {
     conversationsIgsPromericaCOModel,
     conversationsIgsBancolombiaAMModel,
     conversationsIgsAlmacenesSIModel,
-    conversationsIgsJelpitCOModel
+    conversationsIgsJelpitCOModel,
+    conversationsIgsComfamiliarCOModel
 
 };

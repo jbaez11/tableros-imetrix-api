@@ -16,7 +16,8 @@ const {basescoreSerFinanzaModel,
     basescoreIgsPromericaCOModel,
     basescoreIgsBancolombiaAMModel,
     basescoreIgsAlmacenesSIModel,
-    basescoreIgsJelpitCOModel
+    basescoreIgsJelpitCOModel,
+    basescoreIgsComfamiliarCO
 } = require('./model');
  
 
@@ -93,6 +94,9 @@ async function getBasescore(filterBasescore,nameDB){
             return basescore;
         case 'igsJelpitCO' :
             basescore = await basescoreIgsJelpitCOModel.find(filter);
+            return basescore;
+        case 'igsComfamiliarCO' :
+            basescore = await basescoreIgsComfamiliarCO.find(filter);
             return basescore;    
                        
         }

@@ -16,7 +16,8 @@ const {baseKeywordsSerFinanzaModel,
     baseKeywordsIgsPromericaCOModel,
     baseKeywordsIgsBancolombiaAMModel,
     baseKeywordsIgsAlmacenesSIModel,
-baseKeywordsIgsJelpitCOModel} = require('./model');
+baseKeywordsIgsJelpitCOModel,
+baseKeywordsIgsComfamiliarCOModel} = require('./model');
 
 async function getBaseKeywords(nameDB){
     var baseKeywords;
@@ -81,6 +82,9 @@ async function getBaseKeywords(nameDB){
             return baseKeywords;
         case 'igsJelpitCO' :
             baseKeywords = await baseKeywordsIgsJelpitCOModel.find();
+            return baseKeywords;
+        case 'igsComfamiliarCO' :
+            baseKeywords = await baseKeywordsIgsComfamiliarCOModel.find();
             return baseKeywords;        
         }
         
@@ -170,6 +174,10 @@ function addBaseKeywords(baseKeywords,nameDB){
             return myBaseKeywords;
         case 'igsJelpitCO' :
             myBaseKeywords = new baseKeywordsIgsJelpitCOModel(baseKeywords);
+            myBaseKeywords.save();
+            return myBaseKeywords;
+        case 'igsComfamiliarCO' :
+            myBaseKeywords = new baseKeywordsIgsComfamiliarCOModel(baseKeywords);
             myBaseKeywords.save();
             return myBaseKeywords;    
         }
@@ -349,6 +357,15 @@ async function updateBaseKeywords(id,keyword,category,module,cluster,nameDB){
             foundBaseKeywords.cluster=cluster;
             newBaseKeywords = await foundBaseKeywords.save();
             return newBaseKeywords;
+
+        case 'igsComfamiliarCO' :
+            foundBaseKeywords = await baseKeywordsIgsComfamiliarCOModel.findOne({_id:id});
+            foundBaseKeywords.keyword = keyword ;
+            foundBaseKeywords.category = category ;
+            foundBaseKeywords.module = module ;
+            foundBaseKeywords.cluster=cluster;
+            newBaseKeywords = await foundBaseKeywords.save();
+            return newBaseKeywords;
         }
 
       return newBaseKeywords;
@@ -409,7 +426,9 @@ function removeBaseKeywords(id,nameDB){
         case 'igsAlmacenesSI' :
             return baseKeywordsIgsAlmacenesSIModel.deleteOne({_id:id});
         case 'igsJelpitCO' :
-            return baseKeywordsIgsJelpitCOModel.deleteOne({_id:id});    
+            return baseKeywordsIgsJelpitCOModel.deleteOne({_id:id});
+        case 'igsComfamiliarCO' :
+            return baseKeywordsIgsComfamiliarCOModel.deleteOne({_id:id});    
         }
 
         

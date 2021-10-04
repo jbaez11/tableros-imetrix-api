@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
 IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,IgsColpatriaCOConn, IgsEntelCLConn,
-IgsPromericaCOConn, IgsBancolombiaAMConn, IgsAlmacenesSIConn, IgsJelpitCOConn } = require('../../db');
+IgsPromericaCOConn, IgsBancolombiaAMConn, IgsAlmacenesSIConn, IgsJelpitCOConn, IgsComfamiliarCOConn } = require('../../db');
 
 const Schema = mongoose.Schema;
 
@@ -44,6 +44,7 @@ const agentsAuditIgsPromericaCOModel = IgsPromericaCOConn.model('Auditkeywords',
 const agentsAuditIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Auditkeywords', agentsAuditSchema);
 const agentsAuditIgsAlmacenesSIModel = IgsAlmacenesSIConn.model('Auditkeywords', agentsAuditSchema);
 const agentsAuditIgsJelpitCOModel = IgsJelpitCOConn.model('Auditkeywords', agentsAuditSchema);
+const agentsAuditIgsComfamiliarCOModel = IgsComfamiliarCOConn.model('Auditkeywords', agentsAuditSchema);
 
 module.exports = {
     agentsAuditIgsDaviplataCOModel,
@@ -64,6 +65,7 @@ module.exports = {
     agentsAuditIgsPromericaCOModel,
     agentsAuditIgsBancolombiaAMModel,
     agentsAuditIgsAlmacenesSIModel,
-    agentsAuditIgsJelpitCOModel
+    agentsAuditIgsJelpitCOModel,
+    agentsAuditIgsComfamiliarCOModel
 
 };

@@ -4,7 +4,8 @@ const { agentsSerFinanzaModel,agentsBancoColombiaModel,
      agentsBpogsBoldFrenchFRModel,agentsDaviplataCOModel,agentsBpogsAMCCOModel,
      agentsIgsBancoDeOccidenteCOModel,agentsIgsSufiCOModel,
      agentsBpogsHitesFinancieroCOModel, agentsIgsColpatriaCOModel,agentsIgsEntelCLModel,
-     agentsIgsPromericaCOModel,agentsIgsBancolombiaAMModel,agentsIgsAlmacenesSIModel,agentsIgsJelpitCOModel} = require('./model');
+     agentsIgsPromericaCOModel,agentsIgsBancolombiaAMModel,agentsIgsAlmacenesSIModel,
+     agentsIgsJelpitCOModel,agentsIgsComfamiliarCOModel} = require('./model');
 
 async function getAgents( nameDB){
     //const agents = await Model.find();
@@ -74,6 +75,9 @@ async function getAgents( nameDB){
             return agents;
         case 'igsJelpitCO' :
             agents = await agentsIgsJelpitCOModel.find();
+            return agents;
+        case 'igsComfamiliarCO' :
+            agents = await agentsIgsComfamiliarCOModel.find();
             return agents;    
                                   
             
@@ -169,6 +173,10 @@ function addAgents(agents,nameDB){
             return myAgents;
         case 'igsJelpitCO' :
             myAgents = new agentsIgsJelpitCOModel(agents);
+            myAgents.save();
+            return myAgents;
+        case 'igsComfamiliarCO' :
+            myAgents = new agentsIgsComfamiliarCOModel(agents);
             myAgents.save();
             return myAgents;                
             
@@ -346,6 +354,14 @@ async function updateAgents(id,name,identification,gender,nameDB){
                     
                 newAgents = await foundAgents.save();
                 return newAgents;
+        case 'igsComfamiliarCO' :
+                foundAgents = await agentsIgsComfamiliarCOModel.findOne({_id : id});
+                foundAgents.name = name ;
+                foundAgents.identification = identification ;
+                foundAgents.gender = gender ;
+                    
+                newAgents = await foundAgents.save();
+                return newAgents;
             
     }
     return newAgents;
@@ -408,7 +424,9 @@ function removeAgents(id,nameDB){
         case 'igsAlmacenesSI' :
             return agentsIgsAlmacenesSIModel.deleteOne({_id:id});
         case 'igsJelpitCO' :
-            return agentsIgsJelpitCOModel.deleteOne({_id:id});        
+            return agentsIgsJelpitCOModel.deleteOne({_id:id});
+        case 'igsComfamiliarCO' :
+            return agentsIgsComfamiliarCOModel.deleteOne({_id:id});        
             
                        
     }
