@@ -5,7 +5,7 @@ const { agentsSerFinanzaModel,agentsBancoColombiaModel,
      agentsIgsBancoDeOccidenteCOModel,agentsIgsSufiCOModel,
      agentsBpogsHitesFinancieroCOModel, agentsIgsColpatriaCOModel,agentsIgsEntelCLModel,
      agentsIgsPromericaCOModel,agentsIgsBancolombiaAMModel,agentsIgsAlmacenesSIModel,
-     agentsIgsJelpitCOModel,agentsIgsComfamiliarCOModel} = require('./model');
+     agentsIgsJelpitCOModel,agentsIgsComfamiliarCOModel,agentsIgsBancoAgricolaSVModel} = require('./model');
 
 async function getAgents( nameDB){
     //const agents = await Model.find();
@@ -78,6 +78,9 @@ async function getAgents( nameDB){
             return agents;
         case 'igsComfamiliarCO' :
             agents = await agentsIgsComfamiliarCOModel.find();
+            return agents;
+        case 'igsBancoAgricolaSV' :
+            agents = await agentsIgsBancoAgricolaSVModel.find();
             return agents;    
                                   
             
@@ -177,6 +180,10 @@ function addAgents(agents,nameDB){
             return myAgents;
         case 'igsComfamiliarCO' :
             myAgents = new agentsIgsComfamiliarCOModel(agents);
+            myAgents.save();
+            return myAgents;
+        case 'igsBancoAgricolaSV' :
+            myAgents = new agentsIgsBancoAgricolaSVModel(agents);
             myAgents.save();
             return myAgents;                
             
@@ -362,6 +369,14 @@ async function updateAgents(id,name,identification,gender,nameDB){
                     
                 newAgents = await foundAgents.save();
                 return newAgents;
+        case 'igsBancoAgricolaSV' :
+                foundAgents = await agentsIgsBancoAgricolaSVModel.findOne({_id : id});
+                foundAgents.name = name ;
+                foundAgents.identification = identification ;
+                foundAgents.gender = gender ;
+                    
+                newAgents = await foundAgents.save();
+                return newAgents;
             
     }
     return newAgents;
@@ -426,7 +441,9 @@ function removeAgents(id,nameDB){
         case 'igsJelpitCO' :
             return agentsIgsJelpitCOModel.deleteOne({_id:id});
         case 'igsComfamiliarCO' :
-            return agentsIgsComfamiliarCOModel.deleteOne({_id:id});        
+            return agentsIgsComfamiliarCOModel.deleteOne({_id:id});
+        case 'igsBancoAgricolaSV' :
+            return agentsIgsBancoAgricolaSVModel.deleteOne({_id:id});        
             
                        
     }

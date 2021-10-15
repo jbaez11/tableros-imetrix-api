@@ -18,7 +18,8 @@ const {conversationsSerFinanzaModel,
     conversationsIgsBancolombiaAMModel,
     conversationsIgsAlmacenesSIModel,
     conversationsIgsJelpitCOModel,
-    conversationsIgsComfamiliarCOModel} = require('./model');
+    conversationsIgsComfamiliarCOModel,
+    conversationsIgsBancoAgricolaSVModel} = require('./model');
 
 async function getConversations(filterConversations,nameDB){
     let filter = {};
@@ -95,6 +96,9 @@ async function getConversations(filterConversations,nameDB){
             return conversations;
         case 'igsComfamiliarCO' :
             conversations = await conversationsIgsComfamiliarCOModel.find(filter);
+            return conversations;
+        case 'igsBancoAgricolaSV' :
+            conversations = await conversationsIgsBancoAgricolaSVModel.find(filter);
             return conversations;            
                            
         }

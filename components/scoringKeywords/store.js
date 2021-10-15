@@ -17,7 +17,8 @@ const {scoringkeywordsSerFinanzaModel,
     scoringkeywordsIgsBancolombiaAMModel,
     scoringkeywordsIgsAlmacenesSIModel,
     scoringkeywordsIgsJelpitCOModel,
-    scoringkeywordsIgsComfamiliarCOModel} = require('./model');
+    scoringkeywordsIgsComfamiliarCOModel,
+    scoringkeywordsIgsBancoAgricolaSVModel} = require('./model');
 
 async function getScoringkeywords(filterScoringKeywords,nameDB){
     let filter = {};
@@ -95,6 +96,9 @@ async function getScoringkeywords(filterScoringKeywords,nameDB){
             return scoringkeywords;
         case 'igsComfamiliarCO' :
             scoringkeywords = await scoringkeywordsIgsComfamiliarCOModel.find(filter);
+            return scoringkeywords;
+        case 'igsBancoAgricolaSV' :
+            scoringkeywords = await scoringkeywordsIgsBancoAgricolaSVModel.find(filter);
             return scoringkeywords;                                
                
         }

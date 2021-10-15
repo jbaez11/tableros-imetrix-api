@@ -3,7 +3,7 @@ const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanis
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
 IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,
 IgsColpatriaCOConn, IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn, IgsAlmacenesSIConn,
- IgsJelpitCOConn, IgsComfamiliarCOConn  } = require('../../db');
+ IgsJelpitCOConn, IgsComfamiliarCOConn, IgsBancoAgricolaSVConn } = require('../../db');
 
 const Schema = mongoose.Schema;
 
@@ -43,6 +43,7 @@ const statisticsOfClustersIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('St
 const statisticsOfClustersIgsAlmacenesSIModel = IgsAlmacenesSIConn.model('Statisticsofclusters', statisticsOfClustersSchema);
 const statisticsOfClustersIgsJelpitCOModel = IgsJelpitCOConn.model('Statisticsofclusters', statisticsOfClustersSchema);
 const statisticsOfClustersIgsComfamiliarCOModel = IgsComfamiliarCOConn.model('Statisticsofclusters', statisticsOfClustersSchema);
+const statisticsOfClustersIgsBancoAgricolaSVModel = IgsBancoAgricolaSVConn.model('Statisticsofclusters', statisticsOfClustersSchema);
 
 module.exports = {
     statisticsOfClustersIgsDaviplataCOModel,
@@ -64,6 +65,7 @@ module.exports = {
     statisticsOfClustersIgsBancolombiaAMModel,
     statisticsOfClustersIgsAlmacenesSIModel,
     statisticsOfClustersIgsJelpitCOModel,
-    statisticsOfClustersIgsComfamiliarCOModel
+    statisticsOfClustersIgsComfamiliarCOModel,
+    statisticsOfClustersIgsBancoAgricolaSVModel
 
 };

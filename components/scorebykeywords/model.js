@@ -3,7 +3,7 @@ const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanis
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
 IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,
 IgsColpatriaCOConn, IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn, IgsAlmacenesSIConn, 
-IgsJelpitCOConn, IgsComfamiliarCOConn } = require('../../db');
+IgsJelpitCOConn, IgsComfamiliarCOConn, IgsBancoAgricolaSVConn } = require('../../db');
 const Schema = mongoose.Schema;
 
 const scoreSchema = new Schema({
@@ -44,6 +44,7 @@ const scoreIgsBancolombiaAMModel = IgsBancolombiaAMConn.model('Auditscoringkeywo
 const scoreIgsAlmacenesSIModel = IgsAlmacenesSIConn.model('Auditscoringkeywords', scoreSchema);
 const scoreIgsJelpitCOModel = IgsJelpitCOConn.model('Auditscoringkeywords', scoreSchema);
 const scoreIgsComfamiliarCOModel = IgsComfamiliarCOConn.model('Auditscoringkeywords', scoreSchema);
+const scoreIgsBancoAgricolaSVModel = IgsBancoAgricolaSVConn.model('Auditscoringkeywords', scoreSchema);
 
 module.exports = {
     scoreDaviplataCOModel,
@@ -65,5 +66,6 @@ module.exports = {
     scoreIgsBancolombiaAMModel,
     scoreIgsAlmacenesSIModel,
     scoreIgsJelpitCOModel,
-    scoreIgsComfamiliarCOModel
+    scoreIgsComfamiliarCOModel,
+    scoreIgsBancoAgricolaSVModel
 }; 
