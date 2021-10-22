@@ -57,6 +57,7 @@ const IgsDaviviendaCRConn = makeNewConnection('igsDaviviendaCR');
 
 
 
+
 module.exports = {
     SerFinanzaConn,BancolombiaConn,EnelChileConn,
     IgsBanorteMXConn,IgsBanistmoPAConn,BpogsBoldEnglishUSConn,
