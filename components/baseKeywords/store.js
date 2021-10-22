@@ -16,9 +16,10 @@ const {baseKeywordsSerFinanzaModel,
     baseKeywordsIgsPromericaCOModel,
     baseKeywordsIgsBancolombiaAMModel,
     baseKeywordsIgsAlmacenesSIModel,
-baseKeywordsIgsJelpitCOModel,
-baseKeywordsIgsComfamiliarCOModel,
-baseKeywordsIgsBancoAgricolaSVModel} = require('./model');
+    baseKeywordsIgsJelpitCOModel,
+    baseKeywordsIgsComfamiliarCOModel,
+    baseKeywordsIgsBancoAgricolaSVModel,
+    baseKeywordsIgsDaviviendaCRModel} = require('./model');
 
 async function getBaseKeywords(nameDB){
     var baseKeywords;
@@ -90,6 +91,10 @@ async function getBaseKeywords(nameDB){
             
         case 'igsBancoAgricolaSV' :
             baseKeywords = await baseKeywordsIgsBancoAgricolaSVModel.find();
+            return baseKeywords;
+
+        case 'igsDaviviendaCR' :
+            baseKeywords = await baseKeywordsIgsDaviviendaCRModel.find();
             return baseKeywords;
         }
         
@@ -188,6 +193,11 @@ function addBaseKeywords(baseKeywords,nameDB){
             
         case 'igsBancoAgricolaSV' :
             myBaseKeywords = new baseKeywordsIgsBancoAgricolaSVModel(baseKeywords);
+            myBaseKeywords.save();
+            return myBaseKeywords;
+
+        case 'igsDaviviendaCR' :
+            myBaseKeywords = new baseKeywordsIgsDaviviendaCRModel(baseKeywords);
             myBaseKeywords.save();
             return myBaseKeywords;
         }
@@ -378,7 +388,16 @@ async function updateBaseKeywords(id,keyword,category,module,cluster,nameDB){
             return newBaseKeywords;
         
         case 'igsBancoAgricolaSV' :
-            foundBaseKeywords = await baseKeywordsIgsComfamiliarCOModel.findOne({_id:id});
+            foundBaseKeywords = await baseKeywordsIgsBancoAgricolaSVModel.findOne({_id:id});
+            foundBaseKeywords.keyword = keyword ;
+            foundBaseKeywords.category = category ;
+            foundBaseKeywords.module = module ;
+            foundBaseKeywords.cluster=cluster;
+            newBaseKeywords = await foundBaseKeywords.save();
+            return newBaseKeywords;
+
+        case 'igsDaviviendaCR' :
+            foundBaseKeywords = await baseKeywordsIgsDaviviendaCRModel.findOne({_id:id});
             foundBaseKeywords.keyword = keyword ;
             foundBaseKeywords.category = category ;
             foundBaseKeywords.module = module ;
@@ -449,7 +468,9 @@ function removeBaseKeywords(id,nameDB){
         case 'igsComfamiliarCO' :
             return baseKeywordsIgsComfamiliarCOModel.deleteOne({_id:id});
         case 'igsBancoAgricolaSV' :
-            return baseKeywordsIgsBancoAgricolaSVModel.deleteOne({_id:id});    
+            return baseKeywordsIgsBancoAgricolaSVModel.deleteOne({_id:id});
+        case 'igsDaviviendaCR' :
+            return baseKeywordsIgsDaviviendaCRModel.deleteOne({_id:id});    
         }
 
         

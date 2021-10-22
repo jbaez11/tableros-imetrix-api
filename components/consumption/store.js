@@ -18,7 +18,8 @@ const {consumptionSerFinanzaModel,
     consumptionIgsAlmacenesSIModel,
     consumptionIgsJelpitCOModel,
     consumptionIgsComfamiliarCOModel,
-    consumptionIgsBancoAgricolaSVModel
+    consumptionIgsBancoAgricolaSVModel,
+    consumptionIgsDaviviendaCRModel
 } = require('./model');
  
 async function getConsumption(filterConsumption,nameDB){
@@ -97,6 +98,9 @@ async function getConsumption(filterConsumption,nameDB){
             return consumption;
         case 'igsBancoAgricolaSV' :
             consumption = await consumptionIgsBancoAgricolaSVModel.find(filter);
+            return consumption;
+        case 'igsDaviviendaCR' :
+            consumption = await consumptionIgsDaviviendaCRModel.find(filter);
             return consumption;        
              
         }

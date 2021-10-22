@@ -4,7 +4,7 @@ const { IgsDaviplataCOConn,SerFinanzaConn, BancolombiaConn,
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn, BpogsAMCCOCon,
     IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,IgsColpatriaCOConn,
     IgsEntelCLConn,IgsPromericaCOConn,IgsBancolombiaAMConn,IgsAlmacenesSIConn, IgsJelpitCOConn,
-    IgsComfamiliarCOConn,IgsBancoAgricolaSVConn } = require('../../db');
+    IgsComfamiliarCOConn,IgsBancoAgricolaSVConn, IgsDaviviendaCRConn } = require('../../db');
 
 const Schema = mongoose.Schema;
 
@@ -55,6 +55,8 @@ const agentsIgsAlmacenesSIModel = IgsAlmacenesSIConn.model('Baseagents', agentsS
 const agentsIgsJelpitCOModel = IgsJelpitCOConn.model('Baseagents', agentsSchema );
 const agentsIgsComfamiliarCOModel = IgsComfamiliarCOConn.model('Baseagents', agentsSchema );
 const agentsIgsBancoAgricolaSVModel = IgsBancoAgricolaSVConn.model('Baseagents', agentsSchema );
+const agentsIgsDaviviendaCRModel = IgsDaviviendaCRConn.model('Baseagents', agentsSchema );
+
 
 module.exports = {
     agentsSerFinanzaModel,agentsBancoColombiaModel,agentsEnelChileModel,
@@ -65,5 +67,5 @@ module.exports = {
     agentsIgsSufiCOModel,agentsBpogsHitesFinancieroCOModel,agentsIgsColpatriaCOModel,
     agentsIgsEntelCLModel,agentsIgsPromericaCOModel,
     agentsIgsBancolombiaAMModel,agentsIgsAlmacenesSIModel,agentsIgsJelpitCOModel,
-    agentsIgsComfamiliarCOModel,agentsIgsBancoAgricolaSVModel
+    agentsIgsComfamiliarCOModel,agentsIgsBancoAgricolaSVModel,agentsIgsDaviviendaCRModel
 };

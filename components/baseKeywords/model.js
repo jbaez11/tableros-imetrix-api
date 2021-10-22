@@ -3,7 +3,7 @@ const { SerFinanzaConn, BancolombiaConn, EnelChileConn,IgsBanorteMXConn,IgsBanis
     BpogsHitesDespachoRetrioCOConn,BpogsBoldFrenchFRConn,IgsDaviplataCOConn, BpogsAMCCOCon,
 IgsBancoDeOccidenteCOConn,IgsSufiCOConn,BpogsHitesFinancieroCOConn,
 IgsColpatriaCOConn, IgsEntelCLConn, IgsPromericaCOConn, IgsBancolombiaAMConn,IgsAlmacenesSIConn,
-IgsJelpitCOConn, IgsComfamiliarCOConn, IgsBancoAgricolaSVConn } = require('../../db');
+IgsJelpitCOConn, IgsComfamiliarCOConn, IgsBancoAgricolaSVConn, IgsDaviviendaCRConn } = require('../../db');
 const Schema = mongoose.Schema;
  
 const baseKeywordsSchema = new Schema({
@@ -52,6 +52,7 @@ const baseKeywordsIgsAlmacenesSIModel = IgsAlmacenesSIConn.model('Basekeywords',
 const baseKeywordsIgsJelpitCOModel = IgsJelpitCOConn.model('Basekeywords', baseKeywordsSchema);
 const baseKeywordsIgsComfamiliarCOModel = IgsComfamiliarCOConn.model('Basekeywords', baseKeywordsSchema);
 const baseKeywordsIgsBancoAgricolaSVModel = IgsBancoAgricolaSVConn.model('Basekeywords', baseKeywordsSchema);
+const baseKeywordsIgsDaviviendaCRModel = IgsDaviviendaCRConn.model('Basekeywords', baseKeywordsSchema);
 
 module.exports = {
     baseKeywordsDaviplataCOModel,
@@ -74,6 +75,7 @@ module.exports = {
     baseKeywordsIgsAlmacenesSIModel,
     baseKeywordsIgsJelpitCOModel,
     baseKeywordsIgsComfamiliarCOModel,
-    baseKeywordsIgsBancoAgricolaSVModel
+    baseKeywordsIgsBancoAgricolaSVModel,
+    baseKeywordsIgsDaviviendaCRModel
 
 };
