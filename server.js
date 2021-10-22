@@ -3,12 +3,9 @@ require('dotenv').config();
 var compression = require('compression')
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const morgan = require('morgan');
 const router = require('./network/routes');
       
 var app = express();
-
-app.use(morgan('dev'));
 
 app.use(cors());
 
@@ -34,7 +31,3 @@ app.use('/app', express.static('public'));
 app.listen(port, ()=>{
     console.log(`escuchando por el puerto ${port}`);
 })
-
-
-
-

@@ -13,12 +13,12 @@ const auditconversations = require('../components/auditconversations/network');
 const conversations = require('../components/conversations/network');
 const stadisticsofkeywords = require('../components/stadisticsofkeywords/network');
 const basescore = require('../components/basescore/network');
-const basescores = require('../components/basescores/network');
+//const basescores = require('../components/basescores/network');
 const auditkeywordstatistics = require('../components/auditkeywordstatistics/network');
 
-const basecategories = require('../components/categorias/network');
-const modules = require('../components/modulos/network');
-const clusters = require('../components/clusters/network');
+//const basecategories = require('../components/categorias/network');
+//const modules = require('../components/modulos/network');
+//const clusters = require('../components/clusters/network');
 const statisticsofclusters = require('../components/statisticsofclusters/network');
 
 
@@ -38,11 +38,11 @@ const routes = function(server){
     server.use('/:bd/conversations', conversations);
     server.use('/:bd/stadisticsofkeywords', stadisticsofkeywords);
     server.use('/:bd/basescore',basescore);
-    server.use('/:bd/basescoresp',basescores);
+    //server.use('/:bd/basescoresp',basescores);
     server.use('/:bd/auditkeywordstatistics',auditkeywordstatistics);
-    server.use('/:bd/basecategories',basecategories);
-    server.use('/:bd/modules',modules);
-    server.use('/:bd/clusters',clusters);
+    //server.use('/:bd/basecategories',basecategories);
+    //server.use('/:bd/modules',modules);
+    //server.use('/:bd/clusters',clusters);
     server.use('/:bd/statisticsofclusters',statisticsofclusters);
     
     
